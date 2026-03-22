@@ -30,4 +30,5 @@ for fichier in fichiers_log:
 
         print(fichier, "contient", len(lignes), "lignes") #on dit ce fichier contient combien de lignes d'abord
 
+print("Total de toutes les lignes :", total_lignes)
 
