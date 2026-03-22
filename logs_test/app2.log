@@ -1,0 +1,9 @@
+2024-04-01 09:00:00 INFO Service web démarré
+2024-04-01 09:10:00 INFO Requête reçue
+2024-04-01 09:20:00 WARN Cache presque plein
+2024-04-01 09:30:00 ERROR Connexion API externe impossible
+2024-04-01 09:40:00 INFO Réponse envoyée
+2024-04-01 09:50:00 ERROR Connexion API externe impossible
+2024-04-01 10:00:00 INFO Nettoyage des fichiers temporaires
+2024-04-01 10:10:00 WARN Disque dur presque plein
+2024-04-01 10:20:00 INFO Service web arrêté
