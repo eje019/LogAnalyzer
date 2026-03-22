@@ -10,7 +10,9 @@ analyseur.add_argument("--niveau", default="ALL")
 
 args = analyseur.parse_args()
 
-print(f"Le dossier a analyser est :",args.source, "au niveau :" ,args.niveau)
+fichiers_log = glob.glob(args.source + "/*.log")
 
-# print("Dossier : ", args.source)
-# print("Niveau : ", args.niveau)
+# print(f"Le dossier a analyser est :",args.source, "au niveau :" ,args.niveau)
+
+print("Dossier : ", args.source)
+print("Niveau : ", args.niveau)
