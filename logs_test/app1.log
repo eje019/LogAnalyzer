@@ -1,0 +1,10 @@
+2024-04-01 08:00:00 INFO Démarrage du service
+2024-04-01 08:05:00 INFO Chargement de la configuration
+2024-04-01 08:10:00 WARN Utilisation mémoire élevée
+2024-04-01 08:15:00 INFO Tâche programmée lancée
+2024-04-01 08:20:00 ERROR Échec de connexion à la base de données
+2024-04-01 08:25:00 INFO Nouvel utilisateur connecté
+2024-04-01 08:30:00 WARN Délai de réponse dépassé
+2024-04-01 08:35:00 INFO Sauvegarde effectuée
+2024-04-01 08:40:00 ERROR Échec de connexion à la base de données
+2024-04-01 08:45:00 INFO Fin de la tâche
