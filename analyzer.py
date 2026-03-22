@@ -16,3 +16,4 @@ fichiers_log = glob.glob(args.source + "/*.log")
 
 print("Dossier : ", args.source)
 print("Niveau : ", args.niveau)
+print("Fichiers trouvés :", fichiers_log)
