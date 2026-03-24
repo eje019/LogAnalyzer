@@ -55,6 +55,25 @@ for fichier in fichiers_log:
         else:
             erreurs[message] = 1
 
+# Trouver le Top 5 des erreurs les plus fréquentes
+erreurs_restantes = dict(erreurs)
+top5 = []
+
+for i in range(5):
+    if not erreurs_restantes:
+        break
+    
+    message_max = None
+    nombre_max = -1
+    
+    for message, nombre in erreurs_restantes.items():
+        if nombre > nombre_max:
+            nombre_max = nombre
+            message_max = message
+    
+    top5.append((message_max, nombre_max))
+    del erreurs_restantes[message_max]
+
 print("----Resultats----")
 print("Total de toutes les lignes :", total_lignes) #on affiche le nombre total en general
 # print("INFO :", compte_INFO)
@@ -67,3 +86,11 @@ if niveau == "ALL" or niveau == "WARN":
     print("WARN :", compte_WARN)
 if niveau == "ALL" or niveau == "ERROR":
     print("ERROR :", compte_ERROR)
+
+# on affiche les 5 messages d'erreur les plus frequents
+print("\n----Top 5 des messages derreur----")
+if top5:
+    for i, (message, count) in enumerate(top5, 1):
+        print(f"{i}. {message} ({count} fois)")
+else:
+    print("Aucune erreur trouvée")
