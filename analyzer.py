@@ -1,16 +1,25 @@
 import argparse
 import glob
-
+print("\n")
 print("Bonjour je suis l'analyseur de LOGS")
 
+#creartion de l'analyseur d'arguments
 analyseur = argparse.ArgumentParser(description="Analyse des fichiers de logs")
+
+#argument source pour specifier le dossier a analyser obligatoirement sinon erreur
 analyseur.add_argument("--source", required=True)
 
+#argument niveau pour specifier le miveau de filtrage, ALL par defaut
 analyseur.add_argument("--niveau", default="ALL")
 
+# recuperation des arguments tapés par user; stockees dans l'objet args
+# acces via args.source et args.niveau
 args = analyseur.parse_args()
 
+# recherche de tous les fichiers .log dans le dossier source
 fichiers_log = glob.glob(args.source + "/*.log")
+
+
 
 # print(f"Le dossier a analyser est :",args.source, "au niveau :" ,args.niveau)
 niveau = args.niveau 
@@ -57,7 +66,8 @@ for fichier in fichiers_log:
 
 
 
-# Trouver le top 5 des erreurs les plus frequentes
+
+#5 des erreurs les plus frequentes
 
 #copie du dictionaire des erreurs pour pouvoir supprimer les erreurs au fur et à mesure sans perdre l'original
 erreurs_restantes = dict(erreurs)
@@ -70,13 +80,11 @@ for i in range(5):
         break
     
     message_max = None
-    nombre_max = -1 #nombre_max à -1 car on n'a encore rien trouve
+    nombre_max = -1 # -1 car on n'a encore rien trouve
     
     for message, nombre in erreurs_restantes.items():
 
-        # si le nombre de cette erreur est plus grand que le plus grand
-        # qu'on a jusqu'ici alors c'est elle la nouvelle championne
-        if nombre > nombre_max:
+        #on parcourt toutes les erreurs pour trouver le plus grand nombre        if nombre > nombre_max:
             nombre_max = nombre
             message_max = message
         
@@ -84,10 +92,9 @@ for i in range(5):
     # pn l'ajoute dans le tableau top5 sous forme de couple (message, nombre)
     top5.append((message_max, nombre_max))
 
-    # on supprime cette erreur du dictionnaire pour qu'elle ne soit pas
-    # reprise lors des prochains tours de la boucle
+    # on supprime cette erreur du dictionnaire et on le retire pour le prochain tour
     del erreurs_restantes[message_max]
-
+print("\n")
 print("----Resultats----")
 print("Total de toutes les lignes :", total_lignes) #on affiche le nombre total en general
 # print("INFO :", compte_INFO)
