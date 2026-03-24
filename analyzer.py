@@ -108,7 +108,7 @@ if niveau == "ALL" or niveau == "WARN":
 if niveau == "ALL" or niveau == "ERROR":
     print("ERROR :", compte_ERROR)
 
-# on affiche les 5 messages d'erreur les plus frequents
+
 print("\n----Top 5 des messages derreur----")
 if top5:
     for i, (message, count) in enumerate(top5, 1):
