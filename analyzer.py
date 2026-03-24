@@ -44,17 +44,17 @@ for fichier in fichiers_log:
                 compte_WARN = compte_WARN + 1
             elif "ERROR" in ligne:
                 compte_ERROR = compte_ERROR + 1
-        # print(fichier, "contient", len(lignes), "lignes") #on dit ce fichier contient combien de lignes d'abord
+                # print(fichier, "contient", len(lignes), "lignes") #on dit ce fichier contient combien de lignes d'abord
 
-        morceaux = ligne.split() #la ligne est decoupee
+                morceaux = ligne.split() #la ligne est decoupee
 
-        message = " ".join(morceaux[3:])
-        
-        if message in erreurs:
-            erreurs[message] = erreurs[message] + 1
-        else:
-            erreurs[message] = 1
-
+                message = " ".join(morceaux[3:])
+                
+                if message in erreurs:
+                    erreurs[message] = erreurs[message] + 1
+                else:
+                    erreurs[message] = 1
+              
 # Trouver le Top 5 des erreurs les plus fréquentes
 erreurs_restantes = dict(erreurs)
 top5 = []
@@ -70,6 +70,7 @@ for i in range(5):
         if nombre > nombre_max:
             nombre_max = nombre
             message_max = message
+        
     
     top5.append((message_max, nombre_max))
     del erreurs_restantes[message_max]
