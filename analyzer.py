@@ -54,25 +54,38 @@ for fichier in fichiers_log:
                     erreurs[message] = erreurs[message] + 1
                 else:
                     erreurs[message] = 1
-              
-# Trouver le Top 5 des erreurs les plus fréquentes
+
+
+
+# Trouver le top 5 des erreurs les plus frequentes
+
+#copie du dictionaire des erreurs pour pouvoir supprimer les erreurs au fur et à mesure sans perdre l'original
 erreurs_restantes = dict(erreurs)
-top5 = []
+
+top5 = [] #tableau qui va contenir les 5 meilleures erreurs
+# chaque element sera un tuple (message, nombre)
 
 for i in range(5):
     if not erreurs_restantes:
         break
     
     message_max = None
-    nombre_max = -1
+    nombre_max = -1 #nombre_max à -1 car on n'a encore rien trouve
     
     for message, nombre in erreurs_restantes.items():
+
+        # si le nombre de cette erreur est plus grand que le plus grand
+        # qu'on a jusqu'ici alors c'est elle la nouvelle championne
         if nombre > nombre_max:
             nombre_max = nombre
             message_max = message
         
-    
+    # on a l'erreur avec le plus grand nombre
+    # pn l'ajoute dans le tableau top5 sous forme de couple (message, nombre)
     top5.append((message_max, nombre_max))
+
+    # on supprime cette erreur du dictionnaire pour qu'elle ne soit pas
+    # reprise lors des prochains tours de la boucle
     del erreurs_restantes[message_max]
 
 print("----Resultats----")
