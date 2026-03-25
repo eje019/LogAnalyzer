@@ -102,7 +102,9 @@ Le projet est découpé en 4 fichiers indépendants, chacun ayant une responsabi
 
 Cron est un outil qui permet d'exécuter des programmes automatiquement à des heures précises, sans intervention humaine.
 
-*la ligne :*
+### Sur Linux / Mac (avec Cron)
+
+*la ligne à ajouter dans crontab (`crontab -e`) :*
 0 3 * * 0 /usr/bin/python3 /chemin/vers/loganalyzer/main.py --source /chemin/vers/logs --retention 30
 
 
@@ -126,9 +128,15 @@ Cron est un outil qui permet d'exécuter des programmes automatiquement à des h
 Cette commande affiche la liste des tâches planifiées.
 
 ### Remarque importante
-- Sur Windows, on utilise le **Planificateur de tâches** (Task Scheduler) à la place de Cron
-- Le chemin vers Python peut varier : utilise `which python3` pour le trouver sur Linux/Mac
-
+- Sur Windows, on utilise le **Planificateur de tâches** (Task Scheduler) à la place de Cron.
+1. Ouvre le **Planificateur de tâches** (tape "taskschd.msc" dans le menu démarrer)
+2. Clique sur **Créer une tâche**
+3. Dans l'onglet **Déclencheurs** : Nouveau → Hebdomadaire → Dimanche à 03:00
+4. Dans l'onglet **Actions** : Nouvelle action → Démarrer un programme
+   - Programme : `python` (ou le chemin complet vers python.exe)
+   - Arguments : `main.py --source C:\chemin\vers\logs --retention 30`
+   - Démarrer dans : `C:\chemin\vers\loganalyzer`
+5. Valider et tester
 
 
 
