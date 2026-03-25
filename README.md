@@ -141,7 +141,8 @@ Cette commande affiche la liste des tâches planifiées.
 
 
 
-## Architecture et Répartition des Rôles 
+## Architecture et Répartition des Rôles
+*L3 AL G2* 
 
 *main.py* (AMOUZOU-ADOUN Nelson – Intégrateur) : Responsable de l'orchestration principale du programme. Il gère le flux logique entre les modules et implémente une gestion robuste des erreurs fatales via sys.exit(1).
 
