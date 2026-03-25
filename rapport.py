@@ -104,5 +104,5 @@ def generer_rapport_json(rapport, dossier_rapports):
     with open(chemin_rapport, "w", encoding="utf-8") as f:
         json.dump(rapport, f, indent=4, ensure_ascii=False)
 
-    print(f"[OK] Rapport généré : {chemin_rapport}")
+    print(f"\n[OK] Rapport généré : {chemin_rapport}")
     return chemin_rapport

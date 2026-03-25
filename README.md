@@ -1,9 +1,9 @@
 # LogAnalyzer Pro — Pipeline d'Analyse et d'Archivage de Logs
 
-
 **LogAnalyzer Pro** : outil CLI robuste conçu pour automatiser la supervision des logs applicatifs. 
 Développé entièrement avec la bibliothèque standard Python, cette pipeline permet de filtrer les entrées, générer des statistiques détaillées, d'archiver les données et de gérer la rétention des fichiers pour optimiser l'espace disque.
 **Objectif** : Supposons qu'on aie des serveurs qui produisent chacun 500 fichiers de logs /jour ; une semaine -> 35 000 à lire si on veux vérifier que tout va bien. On veut coder un *assistant automatique* qui vas analyser tous ces fichiers de logs; fournir des rapports et archiver apres analyse
+
 
 
 
@@ -17,6 +17,7 @@ git clone https://github.com/eje019/LogAnalyzerPro.git
 cd LogAnalyzerPro
 
 chmod +x main.py
+
 
 
 
@@ -95,6 +96,8 @@ Le projet est découpé en 4 fichiers indépendants, chacun ayant une responsabi
 
 
 
+
+
 ## Planification automatique avec Cron
 
 Cron est un outil qui permet d'exécuter des programmes automatiquement à des heures précises, sans intervention humaine.
@@ -105,19 +108,19 @@ Cron est un outil qui permet d'exécuter des programmes automatiquement à des h
 
 ### Explication de la ligne
 
-| Élément | Signification |
-|---------|---------------|
-| `0 3 * * 0` | **Quand exécuter** : Tous les dimanches à 3h00 du matin |
-| `/usr/bin/python3` | **Quoi** : L'interpréteur Python |
-| `/chemin/vers/loganalyzer/main.py` | **Quel programme** : Notre orchestrateur |
-| `--source /chemin/vers/logs` | **Quel dossier** : L'emplacement des fichiers logs à analyser |
-| `--retention 30` | **Conservation** : Garder les rapports 30 jours |
+| Élément                            | Signification                                                 |
+|------------------------------------|---------------------------------------------------------------|
+| `0 3 * * 0`                        | **Quand exécuter** : Tous les dimanches à 3h00 du matin       |
+| `/usr/bin/python3`                 | **Quoi** : L'interpréteur Python                              |
+| `/chemin/vers/loganalyzer/main.py` | **Quel programme** : Notre orchestrateur                      |
+| `--source /chemin/vers/logs`       | **Quel dossier** : L'emplacement des fichiers logs à analyser |
+| `--retention 30`                   | **Conservation** : Garder les rapports 30 jours               |
 
 ### Comment installer cette planification
-1. Ouvre le terminal
-2. Tape `crontab -e` (ouvre l'éditeur de Cron)
-3. Ajoute la ligne ci-dessus en adaptant les chemins
-4. Sauvegarde et quitte
+1. Ouvrir le terminal
+2. Taper `crontab -e` (ouvre l'éditeur de Cron)
+3. Ajouter la ligne ci-dessus en adaptant les chemins
+4. Sauvegarder et quitter
 
 ### Vérifier que Cron fonctionne
 Cette commande affiche la liste des tâches planifiées.
@@ -125,6 +128,7 @@ Cette commande affiche la liste des tâches planifiées.
 ### Remarque importante
 - Sur Windows, on utilise le **Planificateur de tâches** (Task Scheduler) à la place de Cron
 - Le chemin vers Python peut varier : utilise `which python3` pour le trouver sur Linux/Mac
+
 
 
 
